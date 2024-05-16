@@ -1,4 +1,4 @@
-import 'package:codehero/app/data/models/characters.dart';
+import 'package:codehero/app/home/domain/models/characters.dart';
 
 abstract class CharactersRepository {
   Future<CharacterDataWrapper> getHeroes(

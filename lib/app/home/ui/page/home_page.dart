@@ -1,6 +1,9 @@
-import 'package:codehero/app/domain/cubit/home_cubit.dart';
-import 'package:codehero/app/domain/cubit/pagination_cubit.dart';
-import 'package:codehero/app/ui/widget/hero_library_widget.dart';
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
+import 'package:codehero/app/home/ui/cubit/home_cubit.dart';
+import 'package:codehero/app/home/ui/cubit/pagination_cubit.dart';
+import 'package:codehero/utils/drawer_widget.dart';
+import 'package:codehero/app/home/ui/widget/hero_library_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -21,7 +24,10 @@ class _HomePageState extends State<HomePage> {
 
     homeCubit = Modular.get<HomeCubit>();
     paginationCubit = Modular.get<PaginationCubit>();
-    homeCubit.fetchHeroes(limit: 4, offset: 0);
+
+    if (homeCubit.state is HomeInitial) {
+      homeCubit.fetchHeroes(limit: 4, offset: 0);
+    }
   }
 
   @override
@@ -31,6 +37,7 @@ class _HomePageState extends State<HomePage> {
     TextEditingController _searchController = TextEditingController();
 
     return Scaffold(
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         title: Image.asset(
           "assets/images/marvel_logo.png",
@@ -137,13 +144,29 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 const SizedBox(height: 8.0),
-                                Text(
-                                  heroes[index].name!,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.0,
-                                  ),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.2,
+                                      child: Text(
+                                        heroes[index].name!,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18.0,
+                                        ),
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                          Icons.star_border_outlined),
+                                    )
+                                  ],
                                 ),
                                 const SizedBox(height: 8.0),
                                 HeroLibraryWidget(

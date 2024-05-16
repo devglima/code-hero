@@ -1,6 +1,6 @@
-import 'package:codehero/app/data/config/api.dart';
-import 'package:codehero/app/data/models/characters.dart';
-import 'package:codehero/app/domain/repositories/character_repository.dart';
+import 'package:codehero/config/api.dart';
+import 'package:codehero/app/home/domain/models/characters.dart';
+import 'package:codehero/app/home/domain/repositories/character_repository.dart';
 
 class CharactersDatasource implements CharactersRepository {
   @override

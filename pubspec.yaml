@@ -42,6 +42,8 @@ dependencies:
   dio:
   equatable:
   crypto: 
+  path_provider: 
+  sqflite: 
 
 dev_dependencies:
   flutter_test:

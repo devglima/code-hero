@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:codehero/app/data/models/characters.dart';
-import 'package:codehero/app/domain/repositories/character_repository.dart';
+import 'package:codehero/app/home/domain/models/characters.dart';
+import 'package:codehero/app/home/domain/repositories/character_repository.dart';
 import 'package:equatable/equatable.dart';
 
-part '../state/home_state.dart';
+part '../../domain/state/home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final CharactersRepository repository;

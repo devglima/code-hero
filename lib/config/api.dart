@@ -1,4 +1,4 @@
-import 'package:codehero/app/utils/functions/generate_hash.dart';
+import 'package:codehero/utils/functions/generate_hash.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
