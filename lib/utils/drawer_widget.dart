@@ -59,7 +59,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Modular.to.navigate('/profile');
+                Modular.to.navigate('/profile/');
               },
               leading: Icon(
                 Icons.person_3,
